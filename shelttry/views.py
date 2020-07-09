@@ -21,23 +21,11 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def password_reset(request):
-    return render(request, 'password_reset_done.html')
+def policy(request):
+    return render(request, 'policy.html')
 
-
-
-
-def password_email(request):
-    return render(request, 'password_reset_email.html')
-
-def password_reset_confirm(request):
-    return render(request, 'password_reset_confirm.html')
-
-def password_reset_done(request):
-    return render(request, 'password_reset_done.html')
-
-def password_reset_complete(request):
-    return render(request, 'password_reset_complete.html')
+def privacy(request):
+    return render(request, 'privacy.html')
 
 def logoutUser(request):
     logout(request)
@@ -73,7 +61,7 @@ def register(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account created for ' + user + '\n was successful')
+            messages.success(request, 'Success: Account created for ' + user + '\n was successful.')
             return redirect('login')
 
     context = {'form': form}
