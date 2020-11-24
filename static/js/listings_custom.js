@@ -129,3 +129,4 @@ $(document).ready(function()
 		menu.css('max-height', menu.prop('scrollHeight') + "px");
 	}
 });
+

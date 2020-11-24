@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect, render_to_response
-from .models import Houses, Subscribe, Contact, Images, Test, TestImages, Post, Upload
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from .models import Houses, Subscribe, Contact, Images, Test, TestImages, Testimonial, Upload
 from .form import PostForm, ImageForm, SignUpForm, CreateUserForm, DocumentForm
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -18,8 +18,30 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+#from django.core.mmail import send_mail, BadHeaderError
 # Create your views here.
+
+
+
+def d(request, pk):
+    products = Upload.objects.filter(id=pk)
+    context = {'products': products}
+    return render(request, 'listings_single.html', context)
+
+def edit(request, id):
+    hall = get_object_or_404(Upload, id=id)
+    if request.method == "POST":
+        form = DocumentForm(request.POST, instance=hall)
+        if form.is_valid():
+            hall = form.save(commit=False)
+            #hall.landlord = request.user
+            hall.save()
+            return redirect('dashboard')
+    else:
+        form = DocumentForm(instance=hall)
+    context = {'form': form}
+    return render(request, 'edit.html', context)
+
 
 def policy(request):
     return render(request, 'policy.html')
@@ -31,48 +53,6 @@ def logoutUser(request):
     logout(request)
     return redirect('/')
 
-def delete(request, id):
-    post = Upload.objects.get(id=id)
-    post.delete()
-    return redirect(dashboard)
-
-def user_log(request):
-
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
-        else:
-            messages.info(request, 'Username or password is incorrect')
-
-    return render(request, 'login.html')
-
-
-def register(request):
-    form = CreateUserForm()
-
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Success: Account created for ' + user + '\n was successful.')
-            return redirect('login')
-
-    context = {'form': form}
-    return render(request, 'register.html', context)
-
-
-def detail(request, id):
-    post = get_object_or_404(Post, id=id)
-    photos = Images.objects.filter(post=post)
-    return render(request, 'single-blog.html', {'post': post, 'photos': photos})
-
 @login_required
 def dashboard(request):
     list = Upload.objects.filter(landlord__icontains=request.user)
@@ -80,23 +60,60 @@ def dashboard(request):
     #return render(request, 'dashboard.html', {'list': list})
     return render(request, 'dashboard.html', {'list': list})
 
+def delete(request, id):
+    post = Upload.objects.get(id=id)
+    post.delete()
+    #return HttpResponse('deleted')
+    #return render(request, 'dashboard.html')
+    return redirect('dashboard')
+
+def user_log(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+    return render(request, 'login.html')
+
+
+def register(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Success: Account created for ' + user + '\n was successful.')
+            return redirect('login')
+    context = {'form': form}
+    return render(request, 'register.html', context)
+
+
+
+def detail(request, pk):
+    products = Upload.objects.filter(id=pk)
+    context = {'products': products}
+    return render(request, 'listings_single.html', context)
+
+
 def list(request):
     title = 'Available Houses'
     dests = Upload.objects.all()
-    img = Images.objects.all()
     return render(request, 'list.html', {'dests': dests, 'title':title})
-
-
 
 def ago(request):
     title = 'Houses in Ago'
-    post = Upload.objects.filter(town__icontains="ago iwoye")
+    post = Upload.objects.filter(town__icontains="ago-iwoye")
     images = Images.objects.all()
     return render(request, 'destinations.html', {'post': post, 'title': title, 'images': images})
 
 def ijebu(request):
     title = 'Houses in Ijebu-Igbo'
-    post = Upload.objects.filter(town__icontains="ijebu igbo")
+    post = Upload.objects.filter(town__icontains="ijebu-igbo")
     return render(request, 'destinations.html', {'post': post, 'title': title})
 
 def oru(request):
@@ -106,7 +123,7 @@ def oru(request):
 
 
 def index(request):
-    test = Contact.objects.all()
+    test = Testimonial.objects.all()
     dests = Upload.objects.all()
     return render(request, 'index.html', {'dests': dests, 'test': test})
 
@@ -118,23 +135,24 @@ def dashboardhouses(request):
 def about(request):
     return render(request, 'about.html')
 
-def contact(request):
+'''
+def feedback(request):
     if request.method == 'POST':
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
         house = Contact(name=name, email=email, message=message)
+        recipients = ["shelttry@gmail.com"]
         house.save()
+        try:
+            send_mail(name, email, message, recipients, fail_silently=True)
         return render(request, 'index.html')
     else:
         return render(request, 'index.html')
-
+'''
 
 def success(request):
     return HttpResponse('Successfully uploaded, Note: Your post will be reviewed and uploaded as fast as possible')
-
-
-
 
 def main1(request):
     """Main listing."""
@@ -165,10 +183,6 @@ def search(request):
                                        price__range=(min_price, max_price))
         return render(request, 'search.html', {'search': search, 'title': title})
     #return render(request, 'post.html')
-
-
-
-
 
 
 '''

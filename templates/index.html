@@ -4,10 +4,15 @@
 <html lang="en">
 <head>
 <title>Shelttry - Home</title>
+<meta property="og:image" content="https://shelttry.com/logo3.png">
+<meta property="og:image:type" content="{% static 'images/icons/logo3.png' %}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Shelttry">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
 <link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
@@ -31,7 +36,7 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item home_slider_item">
-					<!-- Image by https://unsplash.com/@aahubs -->
+
 					<div class="home_slider_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
 					<div class="home_slider_content_container text-center">
 						<div class="home_slider_content">
@@ -42,7 +47,6 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item home_slider_item">
-					<!-- Image by https://unsplash.com/@aahubs -->
 					<div class="home_slider_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
 					<div class="home_slider_content_container text-center">
 						<div class="home_slider_content">
@@ -53,7 +57,6 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item home_slider_item">
-					<!-- Image by https://unsplash.com/@aahubs -->
 					<div class="home_slider_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
 					<div class="home_slider_content_container text-center">
 						<div class="home_slider_content">
@@ -86,7 +89,6 @@
 							<a href="/">
 								<div class="logo">
 									<img src="{% static 'images/icons/logo3.png' %}" alt="">
-									<!--span>Shelttry</span-->
 								</div>
 							</a>
 						</div>
@@ -95,21 +97,12 @@
 
 						<nav class="main_nav">
 							<ul class="main_nav_list">
+								<li class="main_nav_item"><a href="/">Home</a></li>
 								<li class="main_nav_item"><a href="list">Explore</a></li>
-								<li class="main_nav_item"><a href="register">Register</a></li>
-								<li class="main_nav_item"><a href="accounts/login">Login</a></li>
-								<li class="main_nav_item"><a href="dashboard">Dashboard</a></li>
-								<!--li class="main_nav_item"><a href="dashboard">Dashboard</a></li-->
+								<li class="main_nav_item"><a href="dashboard">Post Your House</a></li>
 							</ul>
 						</nav>
-						
-						<!-- Phone Home -->
 
-						<!--div class="phone_home text-center">
-							<span>+0080 234 567 84441</span>
-						</div-->
-						
-						<!-- Hamburger -->
 
 						<div class="hamburger_container menu_mm">
 							<div class="hamburger menu_mm">
@@ -130,34 +123,27 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
+								<a href="/">Home</a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="menu_item">
+					<div class="container">
+						<div class="row">
+							<div class="col">
 								<a href="list">Explore</a>
 							</div>
 						</div>
 					</div>
 				</li>
+
 				<li class="menu_item">
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<a href="register">Register</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<a href="accounts/login">Login</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<a href="dashboard">Dashboard</a>
+								<a href="dashboard">Post Your House</a>
 							</div>
 						</div>
 					</div>
@@ -272,54 +258,39 @@
 
 			<div class="row featured_row">
 				<div class="col-lg-4 featured_card_col">
-
 					<div class="featured_card_container">
 						<div class="card featured_card trans_300">
-							<!--div class="featured_panel">featured</div-->
-							<a href="ago iwoye"><img class="card-img-top" src="{% static 'images/ago.jpeg' %}" alt="https://unsplash.com/@marcusneto"></a>
-
+							<a href="{% url 'ago' %}"><img class="card-img-top" src="{% static 'images/ago.jpeg' %}" width="500" height="250"></a>
+						</div>
+						<div class="featured_card_box d-flex flex-row align-items-center trans_300">
+							<img src="{% static 'images/tag.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
+							<div class="featured_card_box_content">
+								<div class="featured_card_price_title"></div>
+								<div class="featured_card_price"><a style="color:#FFFFFF;" href="ago-iwoye">Ago Iwoye</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 featured_card_col">
+					<div class="featured_card_container">
+						<div class="card featured_card trans_300">
+							<a href="ijebu-igbo"><img class="card-img-top" src="{% static 'images/ijebuigbo.jpeg' %}" width="500" height="250" ></a>
 						</div>
 
 						<div class="featured_card_box d-flex flex-row align-items-center trans_300">
 							<img src="{% static 'images/tag.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
 							<div class="featured_card_box_content">
 								<div class="featured_card_price_title"></div>
-								<div class="featured_card_price"><a style="color:#FFFFFF;" href="ago iwoye">Ago Iwoye</a></div>
+								<div class="featured_card_price"><a style="color:#FFFFFF;" href="ijebu-igbo">Ijebu Igbo</a></div>
 							</div>
 						</div>
-
 					</div>
-
 				</div>
-
 				<div class="col-lg-4 featured_card_col">
-
 					<div class="featured_card_container">
 						<div class="card featured_card trans_300">
-							<!--div class="featured_panel">featured</div-->
-							<a href="ijebu igbo"><img class="card-img-top" src="{% static 'images/ijebuigbo.jpeg' %}" alt="https://unsplash.com/@marcusneto"></a>
+							<a href="oru"><img class="card-img-top" src="{% static 'images/oru.jpg' %}" width="500" height="250"></a>
 						</div>
-
-						<div class="featured_card_box d-flex flex-row align-items-center trans_300">
-							<img src="{% static 'images/tag.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
-							<div class="featured_card_box_content">
-								<div class="featured_card_price_title"></div>
-								<div class="featured_card_price"><a style="color:#FFFFFF;" href="ijebu igbo">Ijebu Igbo</a></div>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="col-lg-4 featured_card_col">
-
-					<div class="featured_card_container">
-						<div class="card featured_card trans_300">
-							<!--div class="featured_panel">featured</div-->
-							<a href="oru"><img class="card-img-top" src="{% static 'images/oru.jpg' %}" alt="https://unsplash.com/@marcusneto"></a>
-						</div>
-
 						<div class="featured_card_box d-flex flex-row align-items-center trans_300">
 							<img src="{% static 'images/tag.png' %}"  alt="https://www.flaticon.com/authors/lucy-g">
 							<div class="featured_card_box_content">
@@ -327,23 +298,18 @@
 								<div class="featured_card_price"><a style="color:#FFFFFF;" href="oru">Oru</a></div>
 							</div>
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
 
 	<!-- Testimonials -->
-
 	<div class="testimonials"  id="testimonials">
 		<div class="testimonials_background_container prlx_parent">
 			<div class="testimonials_background prlx" style="background-image:url({% static 'images/testimonials_background.jpg' %})"></div>
 		</div>
 		<div class="container">
-
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
@@ -355,13 +321,9 @@
 
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-					
 					<div class="testimonials_slider_container">
-
-						<!-- Testimonials Slider -->
 						<div class="owl-carousel owl-theme testimonials_slider">
 
-							<!-- Slide -->
 												{% for i in test %}
 							<div class="owl-item text-center">
 								<div class="testimonials_text">{{i.message}}</div>
@@ -374,18 +336,14 @@
 							</div>
 												{% endfor %}
 						</div>
-
 						</div>
-
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
 	<!-- Workflow -->
-
 	<div class="workflow">
 		<div class="container">
 			<div class="row">
@@ -412,7 +370,6 @@
 							<div class="workflow_image">
 								<img src="{% static 'images/workflow_1.png' %}" alt="">
 							</div>
-							
 						</div>
 						<div class="workflow_item_content text-center">
 							<div class="workflow_title">Choose a Location</div>
@@ -433,7 +390,6 @@
 							<div class="workflow_image">
 								<img src="{% static 'images/workflow_2.png' %}" alt="">
 							</div>
-							
 						</div>
 						<div class="workflow_item_content text-center">
 							<div class="workflow_title">Find the Perfect Home</div>
@@ -441,7 +397,6 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- Workflow Item -->
 				<div class="col-lg-4 workflow_col">
 					<div class="workflow_item">
@@ -454,7 +409,6 @@
 							<div class="workflow_image">
 								<img src="{% static 'images/workflow_3.png' %}" alt="">
 							</div>
-							
 						</div>
 						<div class="workflow_item_content text-center">
 							<div class="workflow_title">Move in your new life</div>
@@ -467,9 +421,6 @@
 		</div>
 	</div>
 	<!-- Call to Action -->
-
-
-
 
 <div class="cities">
 		<div class="cities_background"></div>
@@ -486,14 +437,12 @@
 				<div class="col">
 
 					<!-- Cities Slider -->
-
 					<div class="cities_slider_container">
 						<div class="owl-carousel owl-theme cities_slider">
-
 						{% for i in dests %}
-							<!-- City Item -->
+
 							<div class="owl-item city_item">
-								<a href="{{i.town}}" >
+								<a href="detail/{{i.id}}" >
 									<div class="city_image">
 										<img src="{{i.image1.url}}" height="250" alt="">
 									</div>
@@ -506,27 +455,32 @@
 						<div class="cities_prev cities_nav d-flex flex-row align-items-center justify-content-center trans_200">
 							<img src="{% static 'images/nav_left.png' %}" alt="">
 						</div>
-
 						<div class="cities_next cities_nav d-flex flex-row align-items-center justify-content-center trans_200">
 							<img src="{% static 'images/nav_right.png' %}" alt="">
 						</div>
-
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 	</div>
+<div class="cta_1">
+		<div class="cta_1_background" style="background-image:url(images/cta_1.jpg)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
 
+					<div class="cta_1_content d-flex flex-lg-row flex-column align-items-center justify-content-start">
+						<h3 class="cta_1_text text-lg-left text-center">Are you a Landlord or an Agent and you'll like to upload your house</h3>
+						<div class="cta_1_phone"><a href="tel:09063435621">CONTACT US</a></div>
+					</div>
 
-
-
-
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="newsletter">
 		<div class="container">
 			<div class="row row-equal-height">
-
 				<div class="col-lg-6">
 					<div class="newsletter_title">
 						<h3>subscribe to our newsletter</h3>
@@ -546,35 +500,17 @@
 						</form>
 					</div>
 				</div>
-
-				<!--div class="col-lg-6">
-					<a href="#">
-						<div class="weekly_offer">
-							<div class="weekly_offer_content d-flex flex-row">
-								<div class="weekly_offer_icon d-flex flex-column align-items-center justify-content-center">
-									<img src="images/prize.svg" alt="">
-								</div>
-								<div class="weekly_offer_text text-center">weekly offer</div>
-							</div>
-							<div class="weekly_offer_image" style="background-image:url(images/weekly.jpg)"></div>
-						</div>
-					</a>
-				</div-->
-
 			</div>
 		</div>
 	</div>
 
 
-
 	<!-- Footer -->
-
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
 				
 				<!-- Footer About -->
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">
 						<div class="logo_container">
@@ -590,7 +526,6 @@
 						<ul class="footer_social_list">
 							<li class="footer_social_item"><a href="https://www.instagram.com/shelttry/"><i class="fab fa-instagram"></i></a></li>
 							<li class="footer_social_item"><a href="https://www.facebook.com/Shelttry-102136874904339/?ref=bookmarks"><i class="fab fa-facebook-f"></i></a></li>
-							<!--li class="footer_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li-->
 							<li class="footer_social_item"><a href="https://wa.me/+2349063435621"><i class="fab fa-whatsapp"></i></a></li>
 						</ul>
 					</div>
@@ -600,14 +535,12 @@
 				</div>
 				
 				<!-- Footer Useful Links -->
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">quick links</div>
 					<ul class="footer_useful_links">
 						<li class="useful_links_item"><a href="list">Explore</a></li>
 						<li class="useful_links_item"><a href="#locations">Locations</a></li>
 						<li class="useful_links_item"><a href="#testimonials">Clients Testimonials</a></li>
-
 					</ul>
 				</div>
 
@@ -615,7 +548,7 @@
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">Give us your feedback</div>
 					<div class="footer_contact_form_container">
-						<form id="footer_contact_form" class="footer_contact_form" method="post" action="contact">
+						<form id="footer_contact_form" class="footer_contact_form" method="post" action="feedback">
 																		{% csrf_token %}
 							<input id="name" name="name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
 							<input id="email" name="email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
@@ -626,20 +559,14 @@
 				</div>
 
 				<!-- Footer Contact Info -->
-
 				<div class="col-lg-3 footer_col" id="contact">
 					<div class="footer_col_title">contact info</div>
 					<ul class="contact_info_list">
-						<!--li class="contact_info_item d-flex flex-row">
-							<div><div class="contact_info_icon"><img src="{% static 'images/placeholder.svg' %}" alt=""></div></div>
-							<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
-						</li-->
 						<li class="contact_info_item d-flex flex-row">
 							<div><div class="contact_info_icon"><img src="{% static 'images/phone-call.png' %}" alt=""></div></div>
 							<div class="contact_info_text"><a href="tel:09063435621">+234 906 343 5621</a></div>
 						</li>
 						<li class="contact_info_item d-flex flex-row">
-
 							<div class="footer_social_item"><a href="https://wa.me/+2349063435621"><i class="fab fa-whatsapp"></i></a></div>
 							<div class="contact_info_text"><a href="https://wa.me/+2349063435621"> +234 906 343 5621</a></div>
 						</li>
@@ -649,24 +576,20 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 		</div>
 	</footer>
 
 	<!-- Credits -->
-
 	<div class="credits">
-		<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		<span>
 <p>&copy; <script>document.write(new Date().getFullYear());</script> Shelttry. All Rights Reserved<br>
 			   <a href="policy">Terms & Conditions</a>&nbsp; and &nbsp;
 			   <a href="privacy">Privacy Policy</a></p>
-
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+		</span>
 	</div>
 
 </div>
-{% static '' %}
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
@@ -680,5 +603,4 @@
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
 </body>
-
 </html>

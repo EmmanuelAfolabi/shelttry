@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 {% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +18,8 @@
 <body>
 
 <div class="super_container">
-
 	<div class="home">
 		<div class="home_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
-
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -29,10 +27,6 @@
 						<div class="home_title">
 							<h2>{{title}}</h2>
 						</div>
-						<div class="breadcrumbs">
-							<!--span><a href="/">Home</a></span-->
-							<!--span><a href="search"> Search</a></span-->
-							<!--span><a href="list"> Explore</a></span-->
 						</div>
 					</div>
 				</div>
@@ -40,16 +34,12 @@
 		</div>
 	</div>
 
-	<!-- Header -->
 
 	<header class="header trans_300">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="header_container d-flex flex-row align-items-center trans_300">
-
-						<!-- Logo -->
-
 						<div class="logo_container">
 							<a href="/">
 								<div class="logo">
@@ -58,26 +48,14 @@
 								</div>
 							</a>
 						</div>
-
-						<!-- Main Navigation -->
-
 						<nav class="main_nav">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="/">home</a></li>
-								<li class="main_nav_item"><a href="list">explore</a></li>
-								<li class="main_nav_item"><a href="register">Register</a></li>
-								<li class="main_nav_item"><a href="accounts/login">Login</a></li>
-								<li class="main_nav_item"><a href="dashboard">Dashboard</a></li>
+								<li class="main_nav_item"><a href="/">Home</a></li>
+								<li class="main_nav_item"><a href="list">Explore</a></li>
+								<li class="main_nav_item"><a href="dashboard">Post Your House</a></li>
 							</ul>
 						</nav>
 
-						<!-- Phone Home -->
-
-						<!--div class="phone_home text-center">
-							<span>+0080 234 567 84441</span>
-						</div-->
-
-						<!-- Hamburger -->
 
 						<div class="hamburger_container menu_mm">
 							<div class="hamburger menu_mm">
@@ -116,24 +94,6 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<a href="register">Register</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<a href="accounts/login">Login</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
 								<a href="dashboard">Dashboard</a>
 							</div>
 						</div>
@@ -145,21 +105,12 @@
 	</header>
 
 	<!-- Listings -->
-
 	<div class="listings">
 		<div class="container">
 			<div class="row">
-
-				<!-- Search Sidebar -->
-
 				<div class="col-lg-4 sidebar_col">
-					<!-- Search Box -->
-
 					<div class="search_box">
-
 						<div class="search_box_content">
-
-							<!-- Search Box Title -->
 							<div class="search_box_title text-center">
 								<div class="search_box_title_inner">
 									<div class="search_box_title_icon d-flex flex-column align-items-center justify-content-center"><img src="{% static 'images/search.png' %}" alt=""></div>
@@ -167,7 +118,7 @@
 								</div>
 							</div>
 
-							<!-- Search Form -->
+
 							<form class="search_form" action="search" method="GET">
 								<div class="search_box_container">
 									<ul class="dropdown_row clearfix">
@@ -221,17 +172,13 @@
 
 									</ul>
 								</div>
-
 							</form>
 						</div>
 					</div>
 				</div>
 
-				<!-- Listings -->
 
 				<div class="col-lg-8 listings_col">
-
-					<!-- Listings Item -->
 							{% for a in search %}
 
 					<div class="listing_item" id="locations">
@@ -284,8 +231,6 @@
 						</div>
 					</div>
 															{% endfor %}
-
-
 			<div class="row">
 				<div class="col clearfix">
 					<div class="listings_nav">
@@ -301,11 +246,9 @@
 	</div><br/>
 
 	<!-- Newsletter -->
-
 	<div class="newsletter">
 		<div class="container">
 			<div class="row row-equal-height">
-
 				<div class="col-lg-6">
 					<div class="newsletter_title">
 						<h3>subscribe to our newsletter</h3>
@@ -321,7 +264,6 @@
 								<input class="newsletter_email" name="email" type="email" placeholder="Your email here" required="required" data-error="Valid email is required."><br>
 								<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_200" value="Submit">subscribe</button>
 							</div>
-
 						</form>
 					</div>
 				</div>
@@ -330,12 +272,9 @@
 	</div>
 
 	<!-- Footer -->
-
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
-
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">
 						<div class="logo_container">
@@ -360,14 +299,12 @@
 				</div>
 
 				<!-- Footer Useful Links -->
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">quick links</div>
 					<ul class="footer_useful_links">
 						<li class="useful_links_item"><a href="/">Home</a></li>
 						<li class="useful_links_item"><a href="list">Explore</a></li>
 						<li class="useful_links_item"><a href="#locations">Locations</a></li>
-
 					</ul>
 				</div>
 
@@ -375,31 +312,25 @@
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">Give us your feedback</div>
 					<div class="footer_contact_form_container">
-						<form id="footer_contact_form" class="footer_contact_form" action="contact" method="post">
+						<form id="footer_contact_form" class="footer_contact_form" action="feedback" method="post">
 												{% csrf_token %}
-							<input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-							<input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+							<input id="contact_form_name" name="name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
+							<input id="contact_form_email" name="email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
 							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
 							<center><button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">send</button></center>
 						</form>
 					</div>
 				</div>
 
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">contact info</div>
 					<ul class="contact_info_list">
-						<!--\\li class="contact_info_item d-flex flex-row">
-							<div><div class="contact_info_icon"><img src="{% static 'images/placeholder.svg' %}" alt=""></div></div>
-							<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
-						</li-->
 						<li class="contact_info_item d-flex flex-row">
 							<div><div class="contact_info_icon"><img src="{% static 'images/phone-call.png' %}" alt=""></div></div>
 							<div class="contact_info_text"><a href="tel:09063435621">+234 906 343 5621</a></div>
 						</li>
 						<li class="contact_info_item d-flex flex-row">
-
-							<div class="footer_social_item"><a href="https://wa.me/+2349063435621"><i class="fab fa-whatsapp"></i></a></div>
+							<div class="footer_social_item"><a href="https://wa.me/+2349063435621"><i class="s"></i></a></div>
 							<div class="contact_info_text"><a href="https://wa.me/+2349063435621"> +234 906 343 5621</a></div>
 						</li>
 						<li class="contact_info_item d-flex flex-row">
@@ -408,26 +339,22 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 		</div>
 	</footer>
-	<!-- Credits -->
 
+	<!-- Credits -->
 	<div class="credits">
 		<span>
 <p>&copy; <script>document.write(new Date().getFullYear());</script> Shelttry. All Rights Reserved<br>
 			   <a href="policy">Terms & Conditions</a>&nbsp; and &nbsp;
 			   <a href="privacy">Privacy Policy</a></p></span>
 	</div>
-
 </div>
-
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/listings_custom.js' %}"></script>
-</body>
-
+</div></body>
 </html>

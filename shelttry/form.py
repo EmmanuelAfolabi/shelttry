@@ -12,16 +12,29 @@ type = [
 ]
 
 town = [
-    ['ago iwoye', 'Ago'],
-    ['ijebu igbo', 'Ijebu Igbo'],
+    ['ago-iwoye', 'Ago'],
+    ['ijebu-igbo', 'Ijebu Igbo'],
     ['oru', 'Oru'],
 ]
+
+purp = [
+    ['Rent', 'Rent'],
+    ['Sale', 'Sale'],
+]
+
+availability = [
+    ['Available', 'Available'],
+    ['Not Available', 'Not Available'],
+]
+
+
 
 class PostForm(forms.ModelForm):
     hallname = forms.CharField(label='Hall name', max_length=100)
     description = forms.CharField(label='Description', max_length=500)
     type = forms.CharField(label='Type', widget=forms.Select(choices=type))
     town = forms.CharField(label='Town', widget=forms.Select(choices=town))
+    availability = forms.CharField(label='Availability', widget=forms.Select(choices=availability))
     price = forms.IntegerField(label='Price')
     landlord = forms.CharField(label="Agent's name", max_length=100)
     email = forms.EmailField(label='Email', max_length=100)
@@ -61,14 +74,20 @@ class CreateUserForm(UserCreationForm):
 class DocumentForm(forms.ModelForm):
     town = forms.CharField(label='Town', widget=forms.Select(choices=town))
     type = forms.CharField(label='Type', widget=forms.Select(choices=type))
-    description = forms.CharField(label='Description', max_length=500)
+    availability = forms.CharField(label='Availability', widget=forms.Select(choices=availability))
+    description = forms.TextInput()
     landlord = forms.CharField(label='Username', max_length=500)
+    image1 = forms.ImageField(label="")
+    image2 = forms.ImageField(label="")
+    image3 = forms.ImageField(label="")
+    image4 = forms.ImageField(label="", required=False)
 
 
     class Meta:
         model = Upload
         fields = ('hallname', 'description', 'type',
-                  'town', 'price', 'landlord', 'phone', 'image1', 'image2', 'image3', 'image4', )
+                  'town', 'availability', 'price', 'landlord', 'phone', 'image1', 'image2', 'image3', 'image4', )
+
 
 
 

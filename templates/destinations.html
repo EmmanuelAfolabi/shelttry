@@ -65,11 +65,9 @@
 
 						<nav class="main_nav">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="/">home</a></li>
-								<li class="main_nav_item"><a href="list">explore</a></li>
-								<li class="main_nav_item"><a href="register">register</a></li>
-								<li class="main_nav_item"><a href="accounts/login">login</a></li>
-								<li class="main_nav_item"><a href="dashboard">Dashboard</a></li>
+								<li class="main_nav_item"><a href="/">Home</a></li>
+								<li class="main_nav_item"><a href="list">Explore</a></li>
+								<li class="main_nav_item"><a href="dashboard">Post Your House</a></li>
 							</ul>
 						</nav>
 
@@ -109,34 +107,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<!--a href="about.html">about us</a-->
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
 								<a href="list">explore</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<a href="register">Register</a>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="menu_item">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<a href="accounts/login">Login</a>
 							</div>
 						</div>
 					</div>
@@ -272,17 +243,19 @@
 										</div>
 										</div>
 								</div>
+								<a href="detail/{{a.id}}">
 								<div class="featured_card_box d-flex flex-row align-items-center trans_300">
-									<img src="{% static 'images/tag.png' %}" alt="https://www.flaticon.com/authors/lucy-g">
+									<img src="{% static 'images/tag.png' %}">
 									<div class="featured_card_box_content">
-										<div class="featured_card_price_title trans_300">For Rent</div>
+										<div class="featured_card_price_title trans_300">For Rent   &nbsp; | &nbsp; {{a.availability}}</div>
 										<div class="featured_card_price trans_300">₦{{a.price}}</div>
 									</div>
 								</div>
+								</a>
 							</div>
 							<div class="listing_content"><br>
 								<span class="room_title"  style="text-transform:uppercase;">{{a.type}} &nbsp; | &nbsp; {{a.town}}</span><br/><br/>
-								<span class="room_title" style="text-transform:capitalize;">{{a.hallname}}</span>
+								<span class="room_title" style="text-transform:capitalize;"></span>
 								<div class="listing_text">{{a.description}}</div><br/>
 								<ul>
 						<li class="contact_info_item d-flex flex-row">
@@ -353,7 +326,6 @@
 			<div class="row">
 
 				<!-- Footer About -->
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">
 						<div class="logo_container">
@@ -369,17 +341,15 @@
 						<ul class="footer_social_list">
 							<li class="footer_social_item"><a href="https://www.instagram.com/shelttry/"><i class="fab fa-instagram"></i></a></li>
 							<li class="footer_social_item"><a href="https://www.facebook.com/Shelttry-102136874904339/?ref=bookmarks"><i class="fab fa-facebook-f"></i></a></li>
-							<!--li class="footer_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li-->
 							<li class="footer_social_item"><a href="https://wa.me/+2349063435621"><i class="fab fa-whatsapp"></i></a></li>
 						</ul>
 					</div>
-					<div class="footer_about">
+					<div clas="footer_about">
 						<p>We have here an open platform, houses chosen to your taste, whereby you can rent an apartment directly from the Agents or Landlords.<br> We recommend you give us your feedback.</p>
 					</div>
 				</div>
 
 				<!-- Footer Useful Links -->
-
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">quick links</div>
 					<ul class="footer_useful_links">
@@ -394,10 +364,10 @@
 				<div class="col-lg-3 footer_col">
 					<div class="footer_col_title">Give us your feedback</div>
 					<div class="footer_contact_form_container">
-						<form id="footer_contact_form" class="footer_contact_form" action="contact" method="post">
+						<form id="footer_contact_form" class="footer_contact_form" action="feedback" method="post">
 												{% csrf_token %}
-							<input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-							<input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+							<input id="contact_form_name" name="name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
+							<input id="contact_form_email" name="email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
 							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
 							<center><button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">send</button></center>
 						</form>
@@ -448,6 +418,7 @@
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/listings_custom.js' %}"></script>
+	</div></div>
 </body>
 
 </html>

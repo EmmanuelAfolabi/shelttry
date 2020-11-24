@@ -4,6 +4,7 @@ from django.template.defaultfilters import slugify
 from django.conf import settings
 from django.core.validators import RegexValidator
 # Create your models here.
+from django.shortcuts import reverse
 
 type = [
     ['Flat', 'Flat'],
@@ -65,6 +66,10 @@ class Subscribe(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=100)
@@ -72,6 +77,11 @@ class Contact(models.Model):
     subject = models.CharField(max_length=100)
     message = models.CharField(max_length=100)
 
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=100)
 
 
 
@@ -85,7 +95,7 @@ class Post(models.Model):
     price = models.PositiveIntegerField("Price")
     landlord = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
-    phone = models.CharField(max_length=100)
+    phone = models.PositiveIntegerField()
 
 '''
 def get_image_filename(instance, filename):
@@ -101,17 +111,20 @@ class Images(models.Model):
 
 class Upload(models.Model):
     hallname = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.TextField(max_length=5000)
     type = models.CharField(max_length=100)
     town = models.CharField(max_length=100)
+    availability = models.CharField(max_length=100)
     price = models.PositiveIntegerField("Price")
     landlord = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone = models.CharField(validators=[phone_regex], max_length=17, blank=True)  # validators should be a list
+    phone = models.CharField(max_length=100)
+    extra_facility = models.CharField(max_length=1000)
     image1 = models.FileField(upload_to='pics/', null=True)
     image2 = models.FileField(upload_to='pics/', null=True)
     image3 = models.FileField(upload_to='pics/', null=True)
     image4 = models.FileField(upload_to='pics/', null=True)
 
+    def __str__(self):
+        return str(self.hallname)
 

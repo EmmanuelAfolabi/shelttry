@@ -73,18 +73,39 @@ WSGI_APPLICATION = 'new.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Shelttry',
         'USER': 'postgres',
         'PASSWORD': '@Emmanuelsonsax1',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
     }
 }
+'''
+if os.getenv('GAE_APPLICATION', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'Main',
+            'USER': 'Shelttry',
+            'PASSWORD': '@Shelttry1',
+            'HOST': '/cloudsql/sheltry:us-central1:sheltrydb'
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+            'NAME': 'Main',
+            'USER': 'Shelttry',
+            'PASSWORD': '@Shelttry1',
 
-
+        }
+    }
+'''
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

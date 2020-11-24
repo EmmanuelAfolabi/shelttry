@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 {% static "images" as baseUrl %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/c.css' %}">
@@ -23,7 +23,7 @@
           <legend>Login</legend>
 			<div>
                 {% for message in messages %}
-                <div class="alert {{message.tags}} alert-dismissable" role="alert"
+                <div class="alert {{message.tags}} alert-dismissable" role="alert">
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -57,9 +57,7 @@
 
           <center><div class="registration">
             Don't have an account yet?<br/>
-            <a class="register" href="/register">
-              Create an account
-              </a>
+            <a href="tel:09063435621">CONTACT US</a>
           </div></center>
       </form>
 
