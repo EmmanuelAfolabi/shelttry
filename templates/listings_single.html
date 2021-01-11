@@ -26,7 +26,7 @@
 	<!-- Home -->
 	<div class="home">
 		<!-- Image by: https://unsplash.com/@jbriscoe -->
-		<div class="home_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
+		<div class="home_background" style="background-image:url({% static 'images/download2.jpeg' %})"></div>
 
 		<div class="container">
 			<div class="row">
@@ -72,7 +72,7 @@
 						<nav class="main_nav">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="/">home</a></li>
-								<li class="main_nav_item"><a href="{% url 'list' %}">explore</a></li>
+								<li class="main_nav_item"><a href="{% url 'explore' %}">explore</a></li>
 								<li class="main_nav_item"><a href="{% url 'dashboard' %}">Post Your House</a></li>
 							</ul>
 						</nav>
@@ -113,7 +113,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<a href="{% url 'list' %}">explore</a>
+								<a href="{% url 'explore' %}">explore</a>
 							</div>
 						</div>
 					</div>
@@ -226,7 +226,7 @@
 							</div>
 
 							<!-- Search Form -->
-							<form class="search_form" action="search" method="GET">
+							<form class="search_form" action="{% url 'search' %}" method="GET">
 								<div class="search_box_container">
 									<ul class="dropdown_row clearfix">
 										<li class="dropdown_item dropdown_item_5">

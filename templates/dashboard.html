@@ -50,9 +50,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="{% static 'js2/metisMenu.min.js' %}"></script>
 <script src="{% static 'js2/custom.js' %}"></script>
 <link href="{% static 'css2/custom.css' %}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
-
-
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/fontawesome-free-5.0.1/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
 
 
 
@@ -72,7 +71,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<!-- Home -->
 	<div class="home">
 		<!-- Image by: https://unsplash.com/@jbriscoe -->
-		<div class="home_background" style="background-image:url({% static 'images/w5.jpg' %})"></div>
+		<div class="home_background" style="background-image:url({% static 'images/download2.jpeg' %})"></div>
 
 		<div class="container">
 			<div class="row">
@@ -207,8 +206,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                   <tr>
 					  <td><h5><a href="detail/{{list.id}}"> {{list.hallname}} </a></h5></td>
 					  <td class="hidden-phone"><h5>{{list.type}}</h5></td>
-					  <td><h5>₦{{list.price}}</h5> </td>
-                    <td><h5><span class="label-mini label label-info" id="test">{{list.availability}}</span></h5></td>
+					  <td><h5>₦{{list.price}}</h5> </td>{% if list.availability == Available %}
+					<td><h5><span class="label-mini label label-success" id="test">{{list.availability}}</span></h5></td>
+					{% else %}
+					<td><h5><span class="label-mini label label-info" id="test">{{list.availability}}</span></h5></td>
+					{% endif %}
                     <td>
 						<a href="edit/{{list.id}}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>&nbsp;Edit</button></a>&nbsp;&nbsp;
 						<a href="delete/{{list.id}}"><button class="btn btn-danger btn-xs" id="del"><i class="fa fa-trash-o "></i>&nbsp;Delete</button></a>
@@ -248,7 +250,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/listings_custom.js' %}"></script>
-<script src="{% static 'js/test.js' %}"></script>
 
 </body>
 </html>

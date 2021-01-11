@@ -270,6 +270,7 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	capacity: 0.65;
 }
 .home_slider_content_container
 {

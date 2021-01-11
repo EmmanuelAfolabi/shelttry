@@ -120,10 +120,18 @@ class Upload(models.Model):
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=100)
     extra_facility = models.CharField(max_length=1000)
+    numbers = models.IntegerField(null=True)
     image1 = models.FileField(upload_to='pics/', null=True)
     image2 = models.FileField(upload_to='pics/', null=True)
     image3 = models.FileField(upload_to='pics/', null=True)
     image4 = models.FileField(upload_to='pics/', null=True)
+    image5 = models.FileField(upload_to='pics/', null=True)
+    image6 = models.FileField(upload_to='pics/', null=True)
+    image7 = models.FileField(upload_to='pics/', null=True)
+    image8 = models.FileField(upload_to='pics/', null=True)
+    image9 = models.FileField(upload_to='pics/', null=True)
+    image10 = models.FileField(upload_to='pics/', null=True)
+
 
     def __str__(self):
         return str(self.hallname)

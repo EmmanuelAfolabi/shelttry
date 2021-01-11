@@ -100,10 +100,10 @@ def detail(request, pk):
     return render(request, 'listings_single.html', context)
 
 
-def list(request):
+def explore(request):
     title = 'Available Houses'
     dests = Upload.objects.all()
-    return render(request, 'list.html', {'dests': dests, 'title':title})
+    return render(request, 'explore.html', {'dests': dests, 'title':title})
 
 def ago(request):
     title = 'Houses in Ago'

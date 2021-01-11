@@ -27,7 +27,19 @@ availability = [
     ['Not Available', 'Not Available'],
 ]
 
-
+IMAGES_CHOICES = {
+    ('0', '0'),
+    ('1', '1'),
+    ('2', '2'),
+    ('3', '3'),
+    ('7', '7'),
+    ('5', '5'),
+    ('6', '6'),
+    ('4', '4'),
+    ('8', '8'),
+    ('9', '9'),
+    ('10', '10'),
+}
 
 class PostForm(forms.ModelForm):
     hallname = forms.CharField(label='Hall name', max_length=100)
@@ -77,10 +89,18 @@ class DocumentForm(forms.ModelForm):
     availability = forms.CharField(label='Availability', widget=forms.Select(choices=availability))
     description = forms.TextInput()
     landlord = forms.CharField(label='Username', max_length=500)
-    image1 = forms.ImageField(label="")
-    image2 = forms.ImageField(label="")
-    image3 = forms.ImageField(label="")
-    image4 = forms.ImageField(label="", required=False)
+    numbers = forms.IntegerField(label="Numbers of images to be uploaded", widget=forms.Select(choices=IMAGES_CHOICES))
+    
+    image1 = forms.ImageField(label="1")
+    image2 = forms.ImageField(label="2")
+    image3 = forms.ImageField(label="3")
+    image4 = forms.ImageField(label="4")
+    image5 = forms.ImageField(label="5", required=False)
+    image6 = forms.ImageField(label="6", required=False)
+    image7 = forms.ImageField(label="7", required=False)
+    image8 = forms.ImageField(label="8", required=False)
+    image9 = forms.ImageField(label="9", required=False)
+    image10 = forms.ImageField(label="10", required=False)
 
 
     class Meta:
